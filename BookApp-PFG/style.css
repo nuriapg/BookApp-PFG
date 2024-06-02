@@ -1,0 +1,477 @@
+/*     © Vihaan Sharmaa | Binary Bytes     */
+/*           All Rights Reserved           */
+
+/* Importa fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Rancho&display=swap');
+/* Cambios en la familia de fuentes basados en fases */
+.phase1 {
+    font-family: 'Arial', sans-serif;
+}
+
+.phase2 {
+    font-family: 'Times New Roman', serif;
+}
+
+.phase3 {
+    font-family: 'Courier New', monospace;
+}
+
+.phase4 {
+    font-family: 'Georgia', serif;
+}
+
+.phase5 {
+    font-family: 'Verdana', sans-serif;
+}
+
+.phase6 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Reset y fuente global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rancho', cursive;
+}
+
+/* Estilos del cuerpo del documento */
+body {
+    overflow-x: hidden;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* Estilos generales para secciones */
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+/* Estilos específicos para la sección caida */
+section.caida {
+    position: relative;
+    background-color: rgb(161, 157, 157);
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Estilos específicos para los elementos con estos ID */
+#estructura {
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Ajusta el ancho */
+}
+
+#caida {
+    position: absolute;
+    margin-top: -300px;
+    left: 40%;
+    width: auto;
+    height: 40%;
+    object-fit: cover;
+    pointer-events: none;
+    visibility: hidden; /* Oculto por defecto */
+}
+
+/* Añaden gradientes en la parte superior e inferior de la sección caida */
+.caida::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to top, black, transparent);
+    z-index: 10;
+}
+
+.caida::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom, black, transparent);
+    z-index: 10;
+}
+
+/* Estilos para el texto en las secciones */
+section #text {
+    position: absolute;
+    top: 30%;
+    color: black;
+    font-size: 10vw;
+    text-align: center;
+    line-height: 0.55em;
+    transform: translateY(50%);
+}
+
+/* Estilos para imágenes dentro de las secciones */
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* Estilos específicos para el elemento Gruffalo */
+section #gruffalo {
+    top: 60%;
+    left: 0;
+    height: 30%;
+    width: auto;
+}
+
+/* Estilos específicos para la sección 2 */
+section.section2 {
+    position: relative;
+    padding: 20% 10%;
+    background-color: rgb(3, 3, 3);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px; /* Space between paragraphs */
+    overflow: hidden;
+}
+
+/* Estilos para párrafos */
+#parrafoizquierdo, #parrafoizquierdo2, #parrafoizquierdo3 {
+    width: 100%;
+    color: rgb(252, 248, 248);
+    font-size: 3vw;
+    opacity: 0; /* Oculto inicialmente */
+    margin: 20px 0; /* Espacio entre párrafos */
+}
+
+#parrafoderecho, #parrafoderecho2, #parrafoderecho3 {
+    width: 100%;
+    padding-right: 10%;
+    color: rgb(252, 248, 248);
+    font-size: 3vw;
+    opacity: 0; /* Oculto inicialmente */
+    margin: 20px -100px; /* Espacio entre párrafos */
+}
+
+p#parrafoderecho, #parrafoderecho2, #parrafoderecho3 {
+    text-align: right;
+    padding-right: 10%;
+    font-size: 2vw;
+    position: absolute;
+    color: #fff;
+}
+
+/* Estilos específicos para los elementos con estos ID */
+section.section3 {
+    position: relative;
+    background-color: rgb(255, 251, 251);
+    width: auto;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section.section5 {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    background-color: rgb(3, 3, 3); /* Fondo para la sección de lluvia */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.lluvia {
+    position: absolute;
+    top: -100%; /* Comienza fuera de la parte superior del contenedor */
+    left: 0;
+    width: 100%;
+    height: auto;
+    animation: rain-animation 10s linear infinite;
+}
+
+@keyframes rain-animation {
+    0% {
+        top: -160%; /* Comienza fuera de la parte superior */
+    }
+    100% {
+        top: -0%; /* Termina fuera de la parte inferior */
+    }
+}
+
+#circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    animation: moveHorizontal 3s linear infinite;
+}
+
+#gentecircular {
+    position: absolute;
+    margin-top: -60%;
+    width: 100%;
+    height: auto;
+}
+
+.section3::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to top, black, transparent);
+    z-index: 10;
+}
+
+.section3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, black, transparent);
+}
+
+section.section4 {
+    position: relative;
+    padding: 10%;
+    background-color: rgb(3, 3, 3);
+    height: auto;
+    overflow: hidden;
+}
+
+section.section6 {
+    position: relative;
+    padding: 10%;
+    background-color: rgb(3, 3, 3);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px; /* Space between paragraphs */
+    overflow: hidden;
+}
+
+/* Estilos para el contenedor principal */
+.main {
+    position: relative;
+    padding: 10px;
+    background:  black;
+    max-width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content:space-between;
+    gap: 10px;;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Estilos para la sección del prólogo */
+section.prologo {
+    position: relative;
+    background-color: #ffffff00;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content:space-between;
+    align-items:center;
+    
+    margin-bottom: 10%;
+}
+
+#prologo-title {
+    position: relative;
+    top: 0%;
+    font-size: 6vw;
+    color: #000000;
+    text-align: center;
+    margin-top: 10%;
+   
+ 
+}
+
+#ojo{
+    position: relative;
+    width: 40%;
+    max-width: 600px;
+    height: auto;
+    margin-top: 20px;
+}
+
+#prologo-texto {
+    font-size: 3vw;
+    color: #333;
+    text-align: justify;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+#autor-prologo {
+    position: relative;
+    font-size: 3vw;
+    color: #333;
+    text-align: right;
+    width: 80%;
+    margin-top: 20px;
+}
+.partecero {
+    position: relative;
+    width: 100%;
+    height: 190vh;
+    font-size: 6vw;
+    background-color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    
+}
+
+#partecero-title {
+    position: relative;
+    font-size: 6vw;
+    color: #fefbfb;
+    margin-bottom: -130vh;
+    
+}
+.partecero .img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-out;
+    
+    
+
+}
+
+
+.poema1 {
+    position: relative;
+    width: 100%;
+    
+    padding: 5%;
+    background-color: #fff;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+ }
+ 
+ #poema-title {
+    font-size: 6vw;
+    color: #000;
+    margin-bottom: 50px;
+ }
+ 
+ .fuerza {
+    width: 50%;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+ }
+ 
+ #muchas-manos {
+    width: 50%;
+    left: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+ }
+ 
+ .fuerza.animate-in, .fuerza.animate-out {
+    opacity: 1;
+    transform: translateX(0);
+ }
+ 
+ #muchas-manos.animate-in, #muchas-manos.animate-out {
+    opacity: 1;
+    transform: translateX(0);
+ }
+ 
+ .fuerza.animate-out {
+    opacity: 0;
+    transform: translateX(-100%);
+ }
+ 
+ #muchas-manos.animate-out {
+    opacity: 0;
+    transform: translateX(100%);
+ }
+ 
+
+
+
+
+
+
+
+
+
+.poema2 {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    height: auto;
+    display: flex;
+    overflow: hidden;  
+}
+#poema-title2 {
+    
+    font-size: 6vw;
+    color: #000;
+    margin-bottom: 50px;;
+
+}
+
+.laura{
+    position: relative;
+    width: 50%;
+    margin-left: 40px;
+
+}
+#pareja{
+    position: relative;
+    width: 50%;
+    height: 100vh;
+
+}
+
